@@ -1,0 +1,26 @@
+﻿@model Writer
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>EditProfile</h1>
+<form asp-action="EditProfile" asp-controller="Writer" enctype="multipart/form-data">
+    <input type="hidden" asp-for="WriterId"/>
+    <label asp-for="WriterImage">Yazarın Resmi</label>
+    <input class="form-control" type="text" asp-for="WriterImage" />
+    <br />
+    <label asp-for="WriterImage">Yazarın İsmi</label>
+    <input class="form-control" type="text" asp-for="WriterName" />
+    <br />
+    <label asp-for="WriterImage">Kullanıcı Adı</label>
+    <input class="form-control" type="text" asp-for="WriterNickName" />
+    <br />
+    <label asp-for="WriterImage">E-mail</label>
+    <input class="form-control" type="text" asp-for="WriterMail" />
+    <br />
+    <label asp-for="WriterImage">Şifre</label>
+    <input class="form-control" type="text" asp-for="WriterPassword" />
+    <br />
+    <button class="btn btn-primary">Düzenle</button>
+</form>

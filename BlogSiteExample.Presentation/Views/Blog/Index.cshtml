@@ -1,0 +1,31 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="section layout_padding">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/jack/images/@item.BlogImage" alt="#" />
+                </div>
+                <div class="col-md-6">
+                    <div class="full blog_cont">
+                        <h4>@item.BlogTitle</h4>
+                        <h5>@item.BlogCreatedDate.ToLongDateString()  @item.Views READ</h5>
+                        <p>@item.BlogContent.Substring(0,@item.BlogContent.Substring(0,120).LastIndexOf(" "))</p>
+                        <div class="row margin_top_30">
+                            <div class="col-md-12">
+                                <div class="button_section full center margin_top_30">
+                                    <a style="margin:0;" asp-action="BlogDetails" asp-controller="Blog" asp-route-id="@item.BlogId">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

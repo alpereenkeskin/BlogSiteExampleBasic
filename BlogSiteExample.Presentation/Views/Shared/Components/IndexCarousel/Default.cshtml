@@ -1,0 +1,28 @@
+﻿@model Blog
+<div class="banner-slider">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <div id="slider_main" class="carousel slide" data-ride="carousel">
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/jack/images/@Model.BlogImage" alt="#" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="full slider_cont_section">
+                    <h4>Most Read Blog</h4>
+                    <h3>@Model.BlogTitle</h3>
+                    <p>@Model.BlogContent.Substring(0,@Model.BlogContent.Substring(0,120).LastIndexOf(" ")) ....</p>
+                    <div class="button_section">
+                        <a asp-action="BlogDetails" asp-controller="Blog" asp-route-id="@Model.BlogId">Read More</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

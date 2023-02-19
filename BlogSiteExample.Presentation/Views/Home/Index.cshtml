@@ -1,0 +1,41 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<!-- revolution slider -->
+@await Component.InvokeAsync("IndexCarousel")
+<!-- end revolution slider -->
+
+<div class="section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading">
+                    <h3>All <span class="orange_color">Blogs</span></h3>
+                </div>
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="row margin_top_30">
+                <div class="col-md-6">
+                    <img src="~/jack/images/@item.BlogImage" alt="#" />
+                </div>
+                <div class="col-md-6">
+                    <div class="full blog_cont">
+                        <h4>@item.BlogTitle</h4>
+                        <h5><b>@item.BlogCreatedDate.ToLongDateString()</b> @item.Views</h5>
+                        <p>@item.BlogContent.Substring(0,@item.BlogContent.Substring(0,120).LastIndexOf(" "))</p>
+                        <div class="col-md-12">
+                            <div class="button_section full center margin_top_30">
+                                <a style="margin:0;" asp-action="BlogDetails" asp-controller="Blog" asp-route-id="@item.BlogId" >Read More</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

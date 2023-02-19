@@ -1,0 +1,40 @@
+﻿@using BlogSiteExample.Entity.Entities
+@model IPagedList<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Category Id</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Category Description</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.CategoryId</th>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td><a href="#" class="btn btn-success">Aktif Yap</a></td>
+                <td><a asp-action="DeleteCategory" asp-controller="Category" asp-route-id="@item.CategoryId" id="deletebtn"
+                  onclick="return confirm('Kategoriyi Silmek İstediğinize Emin Misiniz ?')"  class="btn btn-danger">Pasif Yap</a></td>
+                <td><a href="#" class="btn btn-primary">Düzenle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<a asp-action="AddNewCategory" asp-controller="Category" class="btn btn-success">Yeni Kategori Ekle</a>
+<br />
+<br />
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}))

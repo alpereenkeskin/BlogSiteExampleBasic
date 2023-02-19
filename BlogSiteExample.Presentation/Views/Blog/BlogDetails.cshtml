@@ -1,0 +1,58 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="Blog-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="Blogheading">
+                    <h3>Blog </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section -->
+<div class="section layout_padding blog_blue_bg light_silver">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="full">
+                    <div class="big_blog">
+                        <img class="img-responsive" src="~/jack/images/blog_1.png" alt="#" />
+                    </div>
+                    <div class="blog_cont_2">
+                        <h3>@Model.BlogTitle</h3>
+                        <p class="sublittle">@Model.BlogCreatedDate.ToLongDateString() @Model.Views</p>
+                        <p>@Model.BlogContent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end section -->
+<!-- section -->
+<section class="layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading" style="padding-left: 15px;padding-right: 15px;">
+                    <h4 style="border-bottom: solid #333 1px;">Comments</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("BlogCommentList",Model.BlogId)
+            <div class="col-md-12 margin_top_30">
+                <div class="heading" style="padding-left: 15px;padding-right: 15px;">
+                    <h4>Post : Your Comment</h4>
+                </div>
+            </div>
+        </div>
+        @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml",Model.Writer)
+    </div>
+</section>
+<!-- end section -->

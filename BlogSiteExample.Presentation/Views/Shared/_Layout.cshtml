@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>Jack Blogger</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="~/jack/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/jack/css/style.css">
+    <link rel="stylesheet" href="~/jack/css/responsive.css">
+    <link rel="icon" href="~/jack/images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="~/jack/css/jquery.mCustomScrollbar.min.css">
+</head>
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="~/jack/images/loading.gif" alt="" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    @await Html.PartialAsync("~/Views/Shared/_Header.cshtml")
+    <!-- end header -->
+
+
+    <div class="main-panel">
+        <!-- section -->
+        @RenderBody()
+        <!-- end section -->
+    </div>
+    <!-- footer -->
+    @await Html.PartialAsync("~/Views/Shared/_Footer.cshtml")
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="~/jack/js/jquery.min.js"></script>
+    <script src="~/jack/js/popper.min.js"></script>
+    <script src="~/jack/js/bootstrap.bundle.min.js"></script>
+    <script src="~/jack/js/jquery-3.0.0.min.js"></script>
+    <script src="~/jack/js/plugin.js"></script>
+    <!-- Scrollbar Js Files -->
+    <script src="~/jack/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/jack/js/custom.js"></script>
+</body>
+</html>

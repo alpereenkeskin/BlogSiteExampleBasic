@@ -1,0 +1,31 @@
+﻿@model List<Comment>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Bu Makalede @Model.Count() Yorum Bulunmaktadır.</h4>
+        @foreach (var item in Model)
+        {
+                <div class="full comment_blog_line">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="images/c_2.png" alt="#" />
+                        </div>
+                        <div class="col-md-9">
+                            <div class="full contact_text">
+                                <h3>@item.CommentUserName</h3>
+                                <h4>Posted on @item.CommentDate.ToLongDateString()</h4>
+                                <p>@item.CommentTitle</p>
+                                <p>
+                                    @item.CommentContent
+
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="reply_bt" href="#">Reply</a>
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+</div>
+

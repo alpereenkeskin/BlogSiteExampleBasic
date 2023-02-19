@@ -1,0 +1,30 @@
+﻿@model List<Blog>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Blog title</th>
+                <th scope="col">Blog content</th>
+                <th scope="col">Category</th>
+                <th scope="col">Writer</th>
+                <th scope="col">#</th>
+                <th scope="col">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.BlogTitle</th>
+                    <td>@item.BlogContent.Substring(0,20)</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.Writer.WriterName</td>
+                    <td><a asp-action="UpdateBlog" asp-controller="Blog" asp-route-id="@item.BlogId" class="btn btn-primary">Update Blog</a></td>
+                    <td><a asp-action="DeleteBlog" asp-controller="Blog" asp-route-id="@item.BlogId" class="btn btn-danger">Delete Blog</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <a asp-action="AddBlog" asp-controller="Blog" class="btn btn-success">Create a new blog.</a>
+</div>

@@ -1,0 +1,18 @@
+﻿@model Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>MessageDetails</h1>
+<div class="card">
+    <div class="card-header">
+        @Model.Subject
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>@Model.MessageDetails</p>
+            <footer class="blockquote-footer">Gönderilme Tarihi<cite title="Source Title">@Model.MessageDate</cite></footer>
+        </blockquote>
+    </div>
+</div>

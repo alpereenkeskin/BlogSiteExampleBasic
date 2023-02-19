@@ -1,0 +1,52 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "AddBlog";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<h1>AddBlog</h1>
+<hr />
+<form asp-action="AddBlog" asp-controller="Blog" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <input asp-for="BlogId" class="form-control" type="hidden" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogTitle" class="control-label"></label>
+        <input asp-for="BlogTitle" class="form-control" />
+        <span asp-validation-for="BlogTitle" class="text-danger"></span>
+        @Html.ValidationMessageFor(x=>x.BlogTitle)
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogImage" class="control-label"></label>
+        <input asp-for="BlogImage" class="form-control" />
+        <span asp-validation-for="BlogImage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogContent" class="control-label"></label>
+        <input asp-for="BlogContent" class="form-control" />
+        <span asp-validation-for="BlogContent" class="text-danger"></span>
+        @Html.ValidationMessageFor(x=>x.BlogContent)
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogCreatedDate" class="control-label"></label>
+        <input asp-for="BlogCreatedDate" class="form-control" />
+        <span asp-validation-for="BlogCreatedDate" class="text-danger"></span>
+    </div>
+    <div class="form-group form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" asp-for="BlogStatus" /> @Html.DisplayNameFor(model => model.BlogStatus)
+        </label>
+    </div>
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.categories,new{@class="form-control"})
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
